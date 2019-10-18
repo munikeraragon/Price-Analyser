@@ -7,12 +7,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <!-- Main Stylesheet File -->
+  <link href="{% static  'css/home.css' %}" rel="stylesheet"> 
     <title>Hello, world!</title>
   </head>
   <body>
-    <h1>Hello, world!</h1>
+
+    <!-- Nav bar-->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>                        
+            </button>
+            <a class="navbar-brand" href="#">Logo</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="{% url 'login' %}">Login</a></li>
+              <li><a href="{% url 'register' %}">Register</a></li>
+              <li><a href="{% url 'analytics' %}">Analytics</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     {% block content %} {% endblock %}
 
     <!-- Optional JavaScript -->
