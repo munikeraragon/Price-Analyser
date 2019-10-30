@@ -1,2 +1,2 @@
 # Dajngo_webapp
- Price analizer
+ Django web applicationn
