@@ -7,7 +7,7 @@ from django.db import models
 # User registration form
 
 class UserRegisterForm(UserCreationForm):
-    emai = forms.EmailField
+    email = forms.EmailField
     class Meta:
         model = User
         fields = ['username','email','password1','password2']
