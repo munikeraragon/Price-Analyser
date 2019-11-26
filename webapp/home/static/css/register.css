@@ -1,8 +1,12 @@
-    /* Remove the navbar's default margin-bottom and rounded borders */ 
-    .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-    }
+#nav{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-color: #ccc;
+}
+
+/* register form */
     .send-button{
       background: #54C7C3;
       width:100%;
@@ -76,3 +80,4 @@
       font-size: 20px;
       }
       }
+/* end of register form */

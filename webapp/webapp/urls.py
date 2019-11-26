@@ -18,11 +18,14 @@ from django.urls import path
 from home import views
 from userApp import views as userViews
 from analytics import views as analyticsViews
+#used for login and logout form
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home,name = 'home'),
-    path('login',userViews.login,name='login'),
+    path('login/',auth_views.LoginView.as_view(template_name='userApp/login.html'),name = 'login'), 
+    path('logout/',auth_views.LogoutView.as_view(template_name='userApp/logout.html'),name = 'logout'),
     path('register',userViews.register,name='register'),
     path('analytics',analyticsViews.analytics, name='analytics'),
 ]

@@ -1,5 +1,4 @@
 {% load static %}
-<!-- Bootstrap basic template-->
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,39 +7,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <!-- Main Stylesheet File -->
-    <link href="{% static  'css/login.css' %}" rel="stylesheet"> 
-    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css"href="{% static  'css/login.css' %}">
+    <title>Login!</title>
   </head>
   <body>
-    <!-- Nav bar-->
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>                        
-            </button>
-            <a class="navbar-brand" href="#">Logo</a>
-          </div>
-          <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="{% url 'home' %}">Home</a></li>
-              <li><a href="{% url 'login' %}">Login</a></li>
-              <li><a href="{% url 'register' %}">Register</a></li>
-              <li><a href="{% url 'analytics' %}">Analytics</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    <h1>Login page!</h1>
+
+    <div id="nav">
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link active" href="{% url 'home' %}">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'login' %}">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'register' %}">Register</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'analytics' %}">Analytics</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+      </li>
+    </ul>
+  </div>
+ 
+  <h3> Log In page</h3>
+  <div class="container">
+    
+      <div class="col-md-6 mx-auto text-center">
+         <div class="header-title">
+            <h1 class="wv-heading--title">
+               Check out — it’s free!
+            </h1>
+            <h2 class="wv-heading--subtitle">
+               Lorem ipsum dolor sit amet! Neque porro quisquam est qui do dolor amet, adipisci velit...
+            </h2>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-md-4 mx-auto">
+            <div class="myform form ">
+               <form method="POST">
+                  {% csrf_token %}
+                  <div class="form-group">
+                     <input type="text" name="username"  class="form-control my-input" id="id_username" placeholder="Name">
+                  </div>
+                  <div class="form-group">
+                    <input type="password" name="password" class="form-control my-input" id="id_password" placeholder="Password"/>
+                  </div>
+                  <div class="text-center ">
+                     <button type="submit" class=" btn btn-block send-button tx-tfm">Login!</button>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -48,3 +72,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
+  </html>
