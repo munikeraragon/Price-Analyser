@@ -16,5 +16,5 @@ class UserRegisterForm(UserCreationForm):
 class ItemForm(forms.ModelForm):
     class Meta:
         model = Item
-        fields = ('itemName','itemURL','itemPrice')
+        fields = ('itemName','itemURL','store')
 

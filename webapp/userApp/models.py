@@ -8,5 +8,6 @@ class Item(models.Model):
     itemName = models.CharField(max_length=50)
     itemURL =  models.CharField(max_length=250)
     itemPrice = models.CharField(max_length=20)
+    store = models.CharField(max_length=50, default='')
     def __str__(self):
         return self.currentUser.username + "_" + str(self.itemName)
