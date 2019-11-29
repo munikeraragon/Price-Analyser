@@ -127,4 +127,4 @@ STATIC_URL = '/static/'
 # used to link into login page
 LOGIN_URL = 'login'
 # redirects from login
-LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'homelog'

@@ -1,0 +1,65 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% block content %}
+<div class="row">
+  <div class="col-sm-3">
+      <div class="content">
+      <img src="{% static 'img/moneysaved3.png' %}" alt="money saved" style="height:150px;">
+    </div>
+    <div class ="itemtext">
+      Money Saved
+    </div>
+  </div>
+  <div class="col-sm-3">
+      <div class="content">
+      <img src="{% static  'img/howtouse2.png' %}" alt="how to use" style="height:150px;">
+    </div>
+    <div class ="itemtext">
+      How To Use
+    </div>
+  </div>
+  <div class="col-sm-3">
+      <div class="content">
+      <a href="#" data-toggle="modal" data-target="#itemform">
+          <img src="{% static  'img/additem2.png' %}" alt="add item" style="height:150px;">
+      </a>
+    </div>
+    <div class ="itemtext">
+      Add Item
+    </div>
+  </div>
+  <div class="col-sm-3">
+      <div class="content">
+      <img src="{% static  'img/myitems3.png' %}" alt="my items" style="height:150px;">
+    </div>
+    <div class ="itemtext">
+      My Items
+    </div>
+  </div>
+</div>
+
+<!-- item form Modal -->
+<div class="modal fade" id="itemform" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Add Item</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <form method="POST">
+              {% csrf_token %}
+              {{ form.as_p }}
+       
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
