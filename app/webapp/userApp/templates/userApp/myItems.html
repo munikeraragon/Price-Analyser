@@ -1,0 +1,11 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% block content %}
+{% for item in userItems %}
+Product: {{ item.itemName }}<br>
+Price: {{ item.itemPrice }}<br>
+URL: {{ item.itemURL }}<br>
+Store: {{ item.store }}<br>
+<br>
+{% endfor %}
+{% endblock %}

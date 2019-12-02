@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, ItemForm
+from django.contrib.auth.models import User
+from .models import Item
 from .webScrape import *
 
 # Create your views here.
@@ -31,5 +33,7 @@ def homelog(request):
     else:
         form = ItemForm()
     return render(request,'userApp/homelog.html',{'form':form})
-
+def myItems(request):
+    userItems = Item.objects.filter(currentUser=request.user)
+    return render(request,'userApp/myItems.html', {'userItems':userItems})
 

@@ -28,5 +28,6 @@ urlpatterns = [
     path('logout/',auth_views.LogoutView.as_view(template_name='userApp/logout.html'),name = 'logout'),
     path('register/',userViews.register,name='register'),
     path('homelog/',userViews.homelog,name='homelog'),
+    path('myItems/',userViews.myItems,name='myItems'),
     path('analytics/',analyticsViews.analytics, name='analytics'),
 ]
