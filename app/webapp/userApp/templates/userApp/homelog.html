@@ -51,16 +51,33 @@
         </button>
       </div>
       <div class="modal-body">
-          <form method="POST">
-              {% csrf_token %}
-              {{ form.as_p }}
+
+      <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+           <input type="text" name="itemName"  class="form-control my-input" id="id_itemName" placeholder="Item">
+        </div>
+        <div class="form-group">
+          <input type="text" name="itemURL"  class="form-control my-input" id="id_itemURL" placeholder="URL">
+       </div>
+       <div class="form-group">
+          <select class="form-control" name ="store" id="id_store">
+              <option value="Amazon">Amazon</option>
+              <option value="BestBuy">Best Buy</option>
+              <option value="Walmart">Walmart</option>
+            </select>
+       </div>
        
+        
+        <div class="text-center ">
+           <button type="submit" class=" btn btn-block send-button tx-tfm">Submit!</button>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save</button>
       </div>
     </form>
+
     </div>
   </div>
 </div>
