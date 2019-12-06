@@ -1,21 +1,18 @@
 {% extends "home/base.html" %}
 {% load static %}
 {% block content %} 
-  <h3> Log In page</h3>
-  <div class="container">
-      <div class="col-md-6 mx-auto text-center">
-         <div class="header-title">
-            <h1 class="wv-heading--title">
-               Check out — it’s free!
-            </h1>
-            <h2 class="wv-heading--subtitle">
-               Lorem ipsum dolor sit amet! Neque porro quisquam est qui do dolor amet, adipisci velit...
-            </h2>
-         </div>
-      </div>
-      <div class="row">
+
+      
+      <div class="row" style="margin-top:80px;">
          <div class="col-md-4 mx-auto">
             <div class="myform form ">
+                  <div class="col-md-6 mx-auto text-center">
+                        <div class="header-title">
+                           <h1 class="wv-heading--title">
+                              Welcome back!
+                           </h1>
+                        </div>
+                     </div>
                <form method="POST">
                   {% csrf_token %}
                   <div class="form-group">
@@ -26,10 +23,11 @@
                   </div>
                   <div class="text-center ">
                      <button type="submit" class=" btn btn-block send-button tx-tfm">Login!</button>
+   
                   </div>
                </form>
             </div>
+            <p>Need an account? <a href="{% url 'register' %}"> Sign up</a></p>
          </div>
       </div>
-   </div>
    {% endblock %}

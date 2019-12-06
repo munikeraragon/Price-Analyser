@@ -1,24 +1,16 @@
 {% extends "home/base.html" %}
 {% load static %}
 {% block content %} 
-    <h1>Register page!</h1>
-
-
-    <div class="container">
-    
-      <div class="col-md-6 mx-auto text-center">
-         <div class="header-title">
-            <h1 class="wv-heading--title">
-               Check out — it’s free!
-            </h1>
-            <h2 class="wv-heading--subtitle">
-               Lorem ipsum dolor sit amet! Neque porro quisquam est qui do dolor amet, adipisci velit...
-            </h2>
-         </div>
-      </div>
-      <div class="row">
+      <div class="row" style="margin-top:80px;">
          <div class="col-md-4 mx-auto">
             <div class="myform form ">
+                  <div class="col-md-6 mx-auto text-center">
+                        <div class="header-title">
+                           <h1 class="wv-heading--title">
+                              Check us out it’s free!
+                           </h1>
+                        </div>
+                     </div>
                <form method="POST">
                   {% csrf_token %}
                   <div class="form-group">
@@ -37,13 +29,14 @@
                        <span class="helptext">Enter the same password as before, for verification.</span>
                      </div>
                      <div class="text-center ">
-                        <button type="submit" class=" btn btn-block send-button tx-tfm">Create Your Free Account</button>
+                        <button type="submit" class=" btn btn-block send-button tx-tfm">Sign up</button>
                      </div>
                </form>
             </div>
+            <p>Already have an account?  <a href="{% url 'login' %}"> Log in</a></p>
          </div>
       </div>
-   </div>
+  
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

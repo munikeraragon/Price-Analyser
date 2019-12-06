@@ -7,25 +7,28 @@
     border-bottom-style: solid;
     border-color: #ccc;
     background-color:#25263d;
+    font-family: 'Muli', sans-serif;
 }
 a{
     color: #fff;
 }
 
 /* image content */
-.row{
-    margin-top:250px;
-}
+
 .col-sm-3{
     height:400px;
-    background-color: rgba(250,251,252,1);
+    background-color:#fff;
 }
 
 .content{
     padding-left: 10%;
     padding-right: 10%;
-    margin-top:30%;
     color:#1B2126;
+    width: 90%;
+    height: 90%;
+    padding-top: 20%;
+    background-color: rgba(250,251,252,1);
+    border-radius: 40px;
 }
 .content img{
     padding-left: 25%;
@@ -35,11 +38,9 @@ a{
 .itemtext{
     font-family: "sqmarket", "Helvetica", sans-serif !important;
     text-align: center;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 23px;
     line-height: 85px;
 
 }
-
-
 /* end of image content */
