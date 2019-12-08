@@ -39,6 +39,7 @@ def homelog(request):
     else:
         form = ItemForm()
     return render(request,'userApp/homelog.html',{'form':form})
+
 def myItems(request):
     userItems = Item.objects.filter(currentUser=request.user)
     return render(request,'userApp/myItems.html', {'userItems':userItems})
