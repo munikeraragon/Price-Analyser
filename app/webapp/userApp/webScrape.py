@@ -10,7 +10,7 @@ import requests
 import json 
 import argparse
 from itertools import cycle
-from userApp.userAgentList import userAgentList
+from userAgentList import userAgentList
 
 def get_proxies():
     url = 'https://free-proxy-list.net/'
@@ -90,7 +90,7 @@ def amazon(URL):
         data = e.extract(r.text)
 
         #print the data to a file
-        filePointer = open('AmazonWebPage.txt', 'w')
+        filePointer = open('AmazonWebPage.html', 'w')
         print(r.text, file = filePointer)
         filePointer.close()
 
