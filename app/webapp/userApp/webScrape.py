@@ -60,31 +60,33 @@ def amazon(URL):
         proxies = get_proxies()
         proxy_pool = cycle(proxies)
 
-        userAgent_pool = cycle(userAgentList)
+        userAgent_pool = iter(userAgentList)
 
         # Create an Extractor by reading from the YAML file
         e = Extractor.from_yaml_file('/home/treverhibbs/Documents/projects/Price-Analyser/app/webapp/userApp/selectors.yml')
 
-        user_agent = 'Mozilla/5.0 (Linux; U; Android 2.2) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1'
-
-        for i in range(1,11):
+        for i in range(1,4):
             #get proxy from pool
             proxy = next(proxy_pool)
 
             #get user agent from user agent pool
             user_agent = next(userAgent_pool)
+            print(user_agent)
+            print(proxy)
             print("Request #%d"%i)
 
-            headers = {"http": proxy, "https": proxy, 'User-Agent': user_agent}
+            headers = {'http': proxy, 'https': proxy, 'User-Agent': user_agent}
 
             try:
                 # Download the page using requests
                 r = requests.get(URL, headers=headers)
+                break
                 # Pass the HTML of the page and create 
             except:
                 #skip if no connect
                 print("Skipping. Connnection error")
 
+    
         data = e.extract(r.text)
 
         #print the data to a file
@@ -93,7 +95,7 @@ def amazon(URL):
         filePointer.close()
 
         # Print the data 
-        #print(json.dumps(data, indent=True))
+        print(json.dumps(data, indent=True))
         return(data["sale_price"])
     except ValueError:
         return False
@@ -112,4 +114,5 @@ def walmart(URL):
         price = priceContainer.find("span",{"class":"visuallyhidden"}).text
         return price
     except ValueError:
+        print("fail")
         return False
