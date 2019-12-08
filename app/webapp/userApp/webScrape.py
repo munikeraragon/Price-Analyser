@@ -9,6 +9,8 @@ from selectorlib import Extractor
 import requests 
 import json 
 import argparse
+from itertools import cycle
+from userApp.userAgentList import userAgentList
 
 def get_proxies():
     url = 'https://free-proxy-list.net/'
@@ -20,11 +22,7 @@ def get_proxies():
             #Grabbing IP and corresponding PORT
             proxy = ":".join([i.xpath('.//td[1]/text()')[0], i.xpath('.//td[2]/text()')[0]])
             proxies.add(proxy)
-    
-    filePointer = open('proxies.txt', 'w')
-
-    print(str(proxies), file = filePointer)
-    filePointer.close()
+    return proxies
 
 def bestBuy(URL):
     try:
@@ -58,16 +56,35 @@ def bestBuy(URL):
 '''
 def amazon(URL):
     try:
+        #get proxy ip
+        proxies = get_proxies()
+        proxy_pool = cycle(proxies)
+
+        userAgent_pool = cycle(userAgentList)
+
         # Create an Extractor by reading from the YAML file
         e = Extractor.from_yaml_file('/home/treverhibbs/Documents/projects/Price-Analyser/app/webapp/userApp/selectors.yml')
 
         user_agent = 'Mozilla/5.0 (Linux; U; Android 2.2) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1'
-        headers = {'User-Agent': user_agent}
 
-        # Download the page using requests
-        
-        r = requests.get(URL, headers=headers)
-        # Pass the HTML of the page and create 
+        for i in range(1,11):
+            #get proxy from pool
+            proxy = next(proxy_pool)
+
+            #get user agent from user agent pool
+            user_agent = next(userAgent_pool)
+            print("Request #%d"%i)
+
+            headers = {"http": proxy, "https": proxy, 'User-Agent': user_agent}
+
+            try:
+                # Download the page using requests
+                r = requests.get(URL, headers=headers)
+                # Pass the HTML of the page and create 
+            except:
+                #skip if no connect
+                print("Skipping. Connnection error")
+
         data = e.extract(r.text)
 
         #print the data to a file
