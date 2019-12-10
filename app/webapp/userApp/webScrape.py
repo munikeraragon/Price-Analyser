@@ -63,7 +63,7 @@ def amazon(URL):
         userAgent_pool = iter(userAgentList)
 
         # Create an Extractor by reading from the YAML file
-        e = Extractor.from_yaml_file('/home/treverhibbs/Documents/projects/Price-Analyser/app/webapp/userApp/selectors.yml')
+        e = Extractor.from_yaml_file("C:\\Users\\santi\\Desktop\\CS320 project\\Dajngo_webapp\\app\\webapp\\userApp\\selectors.yml")
 
         for i in range(1,4):
             #get proxy from pool
