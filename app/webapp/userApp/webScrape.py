@@ -89,13 +89,15 @@ def amazon(URL):
     
         data = e.extract(r.text)
 
-        #print the data to a file
-        #filePointer = open('AmazonWebPage.html', 'w')
-        #print(r.text, file = filePointer)
-        #filePointer.close()
+        #test statements commented out.
+            #print the data to a file
+            #filePointer = open('AmazonWebPage.html', 'w')
+            #print(r.text, file = filePointer)
+            #filePointer.close()
 
-        # Print the data 
-        #print(json.dumps(data, indent=True))
+            # Print the data 
+            #print(json.dumps(data, indent=True))
+
         return(data["sale_price"])
     except ValueError:
         return False
