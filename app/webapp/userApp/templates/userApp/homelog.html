@@ -5,39 +5,42 @@
   <div class="col-sm-3">
       <div class="content">
       <img src="{% static 'img/moneysaved3.png' %}" alt="money saved" style="height:150px;">
-    </div>
-    <div class ="itemtext">
+      <div class ="itemtext">
       Money Saved
+    </div>
+
     </div>
   </div>
   <div class="col-sm-3">
       <div class="content">
       <img src="{% static  'img/howtouse2.png' %}" alt="how to use" style="height:150px;">
-    </div>
-    <div class ="itemtext">
+      <div class ="itemtext">
       How To Use
+    </div>
+
     </div>
   </div>
   <div class="col-sm-3">
       <div class="content">
       <a href="#" data-toggle="modal" data-target="#itemform">
-          <img src="{% static  'img/additem2.png' %}" alt="add item" style="height:150px;">
-      </a>
-    </div>
-    <div class ="itemtext">
+          <img src="{% static  'img/addItem2.png' %}" alt="add item" style="height:150px;">
+          <div class ="itemtext">
       Add Item
+    </div>
+
+      </a>
     </div>
   </div>
   <div class="col-sm-3">
       <div class="content">
         <a href="{% url 'myItems' %}">
-      <img src="{% static  'img/myitems4.png' %}" alt="my items" style="height:150px;">
-    </a>
-    </div>
-    <div class ="itemtext">
+      <img src="{% static  'img/myitems3.png' %}" alt="my items" style="height:150px;">
+      <div class ="itemtext">
       My Items
     </div>
-  </div>
+
+    </a>
+    </div>
 </div>
 
 <!-- item form Modal -->
@@ -67,10 +70,10 @@
               <option value="Walmart">Walmart</option>
             </select>
        </div>
-       
-        
+
+
         <div class="text-center ">
-           <button type="submit" class=" btn btn-block send-button tx-tfm">Submit!</button>
+           <button type="submit" class=" btn btn-block send-button tx-tfm">Add!</button>
         </div>
       </div>
       <div class="modal-footer">
