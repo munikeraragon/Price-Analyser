@@ -49,12 +49,17 @@ def amazon(URL):
         proxy_pool = cycle(proxies)
         userAgent_pool = iter(userAgentList)
         # Create an Extractor by reading from the YAML file
-        e = Extractor.from_yaml_file("C:/Users/santi/Desktop/CS320 project/Dajngo_webapp/app/webapp/userApp/selectors.yml")
+        e = Extractor.from_yaml_file("C:/Users/santi/Desktop/CS320 project/Dajngo_webapp/app/webapp/updatePrices/selectors.yml") 
         #santiago path = C:\\Users\\santi\\Desktop\\CS320 project\\Dajngo_webapp\\app\\webapp\\userApp\\selectors.yml
         #Trever's path = /home/treverhibbs/Documents/projects/Price-Analyser/app/webapp/userApp/selectors.yml
         for i in range(1,4):
             #get proxy from pool
-            proxy = next(proxy_pool)
+            try:
+                proxy = next(proxy_pool)
+            except Exception as e:
+                #skip if no connect
+                print(str(e))
+                return False
             #get user agent from user agent pool
             user_agent = next(userAgent_pool)
             print(user_agent)
@@ -66,9 +71,9 @@ def amazon(URL):
                 r = requests.get(URL, headers=headers)
                 break
                 # Pass the HTML of the page and create 
-            except:
+            except Exception as e:
                 #skip if no connect
-                print("Skipping. Connnection error")
+                print(str(e))
 
         data = e.extract(r.text)
         return(data["sale_price"])

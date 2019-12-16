@@ -1,11 +1,25 @@
 {% extends "home/base.html" %}
 {% load static %}
 {% block content %}
-{% for item in userItems %}
-Product: {{ item.itemName }}<br>
-Price: {{ item.itemPrice }}<br>
-URL: {{ item.itemURL }}<br>
-Store: {{ item.store }}<br>
-<br>
+<div id="myItems">
+    <div class="container">
+{% for key, value in dictionary.items %}
+    <div class="row">
+        {% for item in value %}
+        <div class="col-sm-4">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{ item.itemName }}</h5>
+              <p class="card-text">
+                Price: {{ item.itemPrice }}<br>
+                Store: {{ item.store }}<br>
+              </p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        </div>
 {% endfor %}
+</div>  
+</div>
 {% endblock %}

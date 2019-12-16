@@ -4,7 +4,7 @@ from .forms import UserRegisterForm, ItemForm
 from django.contrib.auth.models import User
 from .models import Item
 from updatePrices.webScrape import *
-
+import math
 
 def register(request):
     if(request.method == 'POST'):
@@ -42,5 +42,17 @@ def homelog(request):
 
 def myItems(request):
     userItems = Item.objects.filter(currentUser=request.user)
-    return render(request,'userApp/myItems.html', {'userItems':userItems})
+    itemNum = 0
+    dictionary = {}
+    numRows = (math.ceil(len(userItems)/3))
+    for x in range(numRows):
+        row = []
+        for i in range(3):
+            try:
+                row.append(userItems[itemNum])
+                itemNum += 1
+            except Exception as e:
+                break
+        dictionary[x] = row   
+    return render(request,'userApp/myItems.html', {'dictionary':dictionary})
     

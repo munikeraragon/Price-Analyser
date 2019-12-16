@@ -1,5 +1,5 @@
  /* login page */
-.form{
+.myform .form{
   min-height: 400px;
   padding-top: 30px;
   background-color:#fff;
@@ -8,19 +8,19 @@
   box-shadow: 0 2px 6px    rgba(0,0,0,0.1);
   margin-bottom: 20px;
 }
-.form-group{
+.myform .form-group{
   padding-left: 25px;
   padding-right: 25px;
 }
 
-.wv-heading--title{
+.myform .wv-heading--title{
   font-size: 20px;
   font-weight: 400;
   margin-bottom: 55px;
   color: #666c70;
 }
 
-.send-button{
+.myform .send-button{
   width: 40%;
   margin: auto;
   font-weight: 600;
@@ -31,15 +31,15 @@
   line-height: 40px;
   margin-bottom: 10px;
 }
-.my-input{
+.myform .my-input{
   height: 50px;
   margin-bottom: 25px;
 }
-.row p{
+.myform .row p{
   font-size: 14px;
   text-align: center;
   color:#9ba0a3;
 }
-.row a{
+.myform .row a{
   color: #5e5ca2;
 }

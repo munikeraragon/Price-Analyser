@@ -9,7 +9,7 @@
     background-color:#25263d;
     font-family: 'Muli', sans-serif;
 }
-a{
+#nav a{
     color: #fff;
 }
 
@@ -44,3 +44,10 @@ a{
 
 }
 /* end of image content */
+
+/* myItems page */
+#myItems .row{
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
