@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from .models import Item
 from updatePrices.webScrape import *
 import math
+from django_user_agents.utils import get_user_agent
 
 def register(request):
     if(request.method == 'POST'):
@@ -26,10 +27,14 @@ def homelog(request):
             data = form.cleaned_data
             url = data['itemURL']
             store = data['store']
+            user_agent = get_user_agent(request)
             if(store == "BestBuy"):
                 price = bestBuy(url)
             elif(store == "Amazon"):
-                price = amazon(url)
+                if user_agent.is_mobile:
+                    price = amazon(url,"phone")
+                else:
+                    price = amazon(url,"laptop")
             elif(store == "Walmart"):
                 price = walmart(url)
         if(price != False):

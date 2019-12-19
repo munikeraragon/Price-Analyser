@@ -10,7 +10,7 @@ import requests
 import json 
 import argparse
 from itertools import cycle
-from .userAgentList import userAgentList
+from .userAgentList import userAgentList, userPhoneAgentList
 
 def get_proxies():
     url = 'https://free-proxy-list.net/'
@@ -42,14 +42,18 @@ def bestBuy(URL):
     
 
 
-def amazon(URL):
+def amazon(URL,device):
     try:
         #get proxy ip
         proxies = get_proxies()
         proxy_pool = cycle(proxies)
-        userAgent_pool = iter(userAgentList)
-        # Create an Extractor by reading from the YAML file
-        e = Extractor.from_yaml_file("C:/Users/santi/Desktop/CS320 project/Dajngo_webapp/app/webapp/updatePrices/selectors.yml") 
+        
+        if(device == "phone"):
+            e = Extractor.from_yaml_file("C:/Users/santi/Desktop/CS320 project/Dajngo_webapp/app/webapp/updatePrices/selectorsPhone.yml")
+            userAgent_pool = iter(userPhoneAgentList)
+        else:
+            e = Extractor.from_yaml_file("C:/Users/santi/Desktop/CS320 project/Dajngo_webapp/app/webapp/updatePrices/selectors.yml") 
+            userAgent_pool = iter(userAgentList)
         #santiago path = C:\\Users\\santi\\Desktop\\CS320 project\\Dajngo_webapp\\app\\webapp\\userApp\\selectors.yml
         #Trever's path = /home/treverhibbs/Documents/projects/Price-Analyser/app/webapp/userApp/selectors.yml
         for i in range(1,4):
@@ -62,9 +66,6 @@ def amazon(URL):
                 return False
             #get user agent from user agent pool
             user_agent = next(userAgent_pool)
-            print(user_agent)
-            print(proxy)
-            print("Request #%d"%i)
             headers = {'http': proxy, 'https': proxy, 'User-Agent': user_agent}
             try:
                 # Download the page using requests
@@ -74,17 +75,18 @@ def amazon(URL):
             except Exception as e:
                 #skip if no connect
                 print(str(e))
-
         data = e.extract(r.text)
-        return(data["sale_price"])
-    except ValueError:
+        if(device == "phone"):
+            return("$" + data["sale_price"])
+        else:
+            return(data["sale_price"])
+    except Exception as e:
+        print(str(e))
         return False
 
 def walmart(URL):
     try:
         headers = {'user-agent': 'Mozilla/5.0 (Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:69.0) Gecko/20100101 Firefox/69.0',}
-        #url = "https://www.bestbuy.com/site/google-pixel-4-with-64gb-cell-phone-unlocked-just-black/6382490.p?skuId=6382490"
-        #url = "https://www.bestbuy.com/site/microsoft-xbox-one-s-1tb-nba-2k20-bundle-white/6350265.p?skuId=6350265"
         url = URL
         # store page html
         htmlPage = requests.get(url, headers=headers)
