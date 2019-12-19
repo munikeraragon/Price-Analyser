@@ -8,10 +8,10 @@
         {% for item in value %}
         <div class="col-sm-4">
           <div class="card" style="width: 18rem;">
-            <div class="card-body">
+            <div class="card-body" style="padding-top: 0.5rem; text-align: center;">
               <h5 class="card-title">{{ item.itemName }}</h5>
-              <p class="card-text">
-                Price: {{ item.itemPrice }}<br>
+              <p class="card-text" style="text-align: left;line-height: 42px;letter-spacing: 0.089em; ">
+                Price: <span style="font-size: 23px;font-weight: 600;">{{ item.itemPrice }}</span><br>
                 Store: {{ item.store }}<br>
               </p>
             </div>
