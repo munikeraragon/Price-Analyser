@@ -1,5 +1,23 @@
 /* home page */
 
+#logo{
+    width:35%;
+    height:160px;
+    margin:auto;
+    margin-top:30px;
+    border-radius: 120px;
+    background-color: #2e2d43;
+    background-color: rgb(220, 224, 229);
+}
+#logo p{
+    text-align: center;
+    font-family: 'Roboto Mono', monospace;
+    color:#fff;
+    color:#2a4eb9;
+    font-size:63px;
+    padding-top: 40px;
+}
+
 #nav{
     padding-top: 20px;
     padding-bottom: 20px;
@@ -14,7 +32,9 @@
 }
 
 /* image content */
-
+.row{
+    margin-top:150px;
+}
 .col-sm-3{
     height:400px;
     background-color:#fff;
@@ -24,26 +44,74 @@
     padding-left: 10%;
     padding-right: 10%;
     color:#1B2126;
-    width: 90%;
-    height: 90%;
+    width: 80%;
+    height: 100%;
     padding-top: 20%;
     background-color: rgba(250,251,252,1);
     border-radius: 40px;
+    box-shadow: -4px -4px 15px rgb(210, 211, 228);
+    margin: auto;
 }
+
+.content:hover{
+    box-shadow: inset -4px -4px 15px rgb(255, 255, 255,0.5),
+                inset 4px 4px 10px rgb(0, 0, 0,0.05);
+}
+
+a:link {
+    text-decoration: none;
+  }
+
+.content .itemtext{
+    color:#444A4F;
+}
+
+.content a:hover {
+    color: blue;
+  }
 .content img{
     padding-left: 25%;
     padding-right: 25%;
     background:rgba(250,251,252,1);
 }
-.itemtext{
-    font-family: "sqmarket", "Helvetica", sans-serif !important;
+.itemtext h2{
+    font-family: 'Raleway', sans-serif;
     text-align: center;
-    font-weight: 500;
-    font-size: 23px;
-    line-height: 85px;
-
+    font-size: 27px;
+    line-height: 46px;
+    letter-spacing: -0.014em;
+    font-weight: 600;
+}
+.itemtext p{
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    line-height: 23px;
+    font-weight: 400;
+    color:black;
+    text-align:center;
 }
 /* end of image content */
+
+.modal-body h2{
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    font-size: 37px;
+    line-height: 46px;
+    letter-spacing: -0.014em;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+.modal-body p{
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    line-height: 23px;
+    font-weight: 400;
+    color:black;
+    text-align:center;
+}
+
+
+
 
 /* myItems page */
 #myItems .row{

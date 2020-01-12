@@ -1,31 +1,48 @@
 {% extends "home/base.html" %}
 {% load static %}
 {% block content %}
-<div class="row" style="margin-top:250px">
+<div id="logo">
+  <p>Price Track</p>
+ </div>
+<div class="row">
   <div class="col-sm-3">
       <div class="content">
-      <img src="{% static 'img/moneysaved3.png' %}" alt="money saved" style="height:150px;">
+      <img src="{% static 'img/moneysaved3.png' %}" alt="money saved" style="height:120px;">
       <div class ="itemtext">
-      Money Saved
+        <h2>Money Saved</h2>
+        <p>
+          See how much you have saved in each of your items.
+        </p>
     </div>
 
     </div>
   </div>
   <div class="col-sm-3">
+    <a href="#" data-toggle="modal" data-target="#howtouseModal">
       <div class="content">
-      <img src="{% static  'img/howtouse2.png' %}" alt="how to use" style="height:150px;">
+      <img src="{% static  'img/howtouse2.png' %}" alt="how to use" style="height:120px;">
       <div class ="itemtext">
-      How To Use
+        <h2>How To Use</h2>
+        <p>
+          Read this quick tutorial and learn how you can get 
+          the best use from all our tools.
+        </p>
     </div>
 
     </div>
+    </a>
   </div>
   <div class="col-sm-3">
       <div class="content">
       <a href="#" data-toggle="modal" data-target="#itemform">
-          <img src="{% static  'img/addItem2.png' %}" alt="add item" style="height:150px;">
+          <img src="{% static  'img/addItem2.png' %}" alt="add item" style="height:120px;">
           <div class ="itemtext">
-      Add Item
+            <h2>Add Item</h2>
+            <p>
+              Our easy-to-use system helps you keep a closely 
+              eye on all of your favorite online products.
+            </p>
+            <h2>Tutorial Coming Soon!</h2>
     </div>
 
       </a>
@@ -34,13 +51,34 @@
   <div class="col-sm-3">
       <div class="content">
         <a href="{% url 'myItems' %}">
-      <img src="{% static  'img/myitems3.png' %}" alt="my items" style="height:150px;">
+      <img src="{% static  'img/myitems3.png' %}" alt="my items" style="height:120px;">
       <div class ="itemtext">
-      My Items
+        <h2>My Items</h2>
+        <p>
+          Take a look at all of the Items stored on your shellf.
+          We will notify as soon as a price drop is detected!
+        </p>
     </div>
 
     </a>
     </div>
+</div>
+
+<!-- How to use modal -->
+<div class="modal fade" id="howtouseModal" tabindex="-1" role="dialog" aria-labelledby="howToUseModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="max-width: 700px;" role="document">
+    <div class="modal-content">
+      
+      <div class="modal-body">
+      <h2>Welcome to PriceTrack!</h2>
+
+      <p> In this short tutorial we will walk you on how to you will
+        be able to monitor multiple online Items.
+      </p>
+      </div>
+    
+    </div>
+  </div>
 </div>
 
 <!-- item form Modal -->
