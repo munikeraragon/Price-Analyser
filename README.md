@@ -1,4 +1,4 @@
-# Price-Analyser <br />
+# Price-Analyzer <br />
   Web application that allows users to oversee price changes in online items. <br>
   Live view: [Price Analyser](http://54.167.13.229/)
   
