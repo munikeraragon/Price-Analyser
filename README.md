@@ -1,10 +1,23 @@
 # Price-Analyser <br />
-  Web application that allows users to oversee price changes on online items.
-## Table of contents
+  Web application which allows users to oversee price changes in online items. <br>
+  Live view [Price Analyser](http://54.167.13.229/)
   
-  change of price
-  • Description: The goal of this project is to create an application that allows users to store various online products.
-    This application will scrape the html from the given online product and locate the html component storing it's price. From this           information the program will then periodically request the product's page and determine if an update of the price needs to be             performed.<br />
-  • Teammembers: Muniker Aragon,Trever Hibbs.<br />
-  • 
 
+### Table of contents
+  
+  - [Description](#Description)
+  - [System layout](#Systemlayout)
+  - [Contributors](#Contributors)
+
+  ## Description
+    The goal of this project is to provide users with a tool that helps them shop items at lowest price possible. The application allow users to input the url of an online and the have the application scrape the page to retireve price and othe useul information. The apllication will then periodically request the page and exmine if the price of the item has change. Item an an online item url, and t will the process the  from 
+    ### Technologies
+    - Python
+    - Django
+    - html/css
+    - Bootstrap
+    
+  ## System layout
+
+  ### Contributors
+  Muniker Aragon,Trever Hibbs.  
