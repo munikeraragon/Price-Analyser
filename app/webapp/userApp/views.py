@@ -7,6 +7,8 @@ from updatePrices.webScrape import *
 import math
 from django_user_agents.utils import get_user_agent
 
+
+
 def register(request):
     if(request.method == 'POST'):
         form = UserRegisterForm(request.POST)

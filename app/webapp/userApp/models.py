@@ -1,9 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
-# Create your models here.
+
+''' Entity representation of an item '''
 
 class Item(models.Model):
-    # create a many to one relationship (User -> many Items)
+    # create many to one relationship (User -> many Items)
     currentUser = models.ForeignKey(User, on_delete=models.PROTECT)
     itemName = models.CharField(max_length=50)
     itemURL =  models.CharField(max_length=500)

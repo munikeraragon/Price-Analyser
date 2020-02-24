@@ -1,3 +1,3 @@
 from webScrape import *
 
-get_proxies();
+get_proxies()
